@@ -6,7 +6,21 @@ module.exports = {
     "gatsby-plugin-postcss",
     "gatsby-plugin-gatsby-cloud",
     "gatsby-plugin-react-helmet",
-    "gatsby-plugin-sitemap",
+    {
+      resolve: "gatsby-plugin-sitemap",
+      options: {
+        query: `
+        {
+          allSitePage {
+            nodes {
+              path
+            }
+          }
+        }
+        `,
+        resolveSiteUrl: () => 'https://esender.me'
+      },
+    },
     {
       resolve: "gatsby-plugin-manifest",
       options: {
