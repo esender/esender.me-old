@@ -18,7 +18,7 @@ module.exports = {
           }
         }
         `,
-        resolveSiteUrl: () => 'https://esender.me'
+        resolveSiteUrl: () => "https://esender.me",
       },
     },
     {
@@ -36,5 +36,13 @@ module.exports = {
       },
       __key: "pages",
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: "data",
+        path: `${__dirname}/src/data`,
+      },
+    },
+    "gatsby-transformer-remark"
   ],
 };

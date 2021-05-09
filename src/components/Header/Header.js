@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "gatsby";
 import "./styles.css";
 
 export default function Header() {
@@ -8,7 +9,10 @@ export default function Header() {
       <nav>
         <ul className="navigation-list">
           <li className="navigation-item">
-            <a href="/">Homepage</a>
+            <Link to="/">Homepage</Link>
+          </li>
+          <li className="navigation-item">
+            <Link to="/resume">Résumé</Link>
           </li>
         </ul>
       </nav>
