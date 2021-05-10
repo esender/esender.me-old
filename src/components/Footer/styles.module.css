@@ -8,20 +8,20 @@
   font-size: 0.8rem;
 }
 
-.social-links {
+.socialLinks {
   font-size: 32px;
   text-align: center;
 }
 
-.social-links-item {
+.socialLinksItem {
   display: inline-block;
 }
 
-.social-links-item + .social-links-item {
+.socialLinksItem + .socialLinksItem {
   margin-left: 1em;
 }
 
-.social-icon {
+.socialIcon {
   width: 1em;
   height: 1em;
 }
