@@ -1,17 +1,17 @@
 import React from "react";
 import { Link } from "gatsby";
-import "./styles.css";
+import * as styles from "./styles.module.css";
 
 export default function Header() {
   return (
-    <header className="header">
-      <div className="name">Marat Abdulin</div>
+    <header className={styles.header}>
+      <div className={styles.name}>Marat Abdulin</div>
       <nav>
-        <ul className="navigation-list">
-          <li className="navigation-item">
+        <ul className={styles.navigationList}>
+          <li className={styles.navigationItem}>
             <Link to="/">Homepage</Link>
           </li>
-          <li className="navigation-item">
+          <li className={styles.navigationItem}>
             <Link to="/resume">Résumé</Link>
           </li>
         </ul>

@@ -8,12 +8,12 @@
   font-size: 1.3rem;
 }
 
-.navigation-list {
+.navigationList {
   display: flex;
   justify-content: space-around;
 }
 
-.navigation-item {
+.navigationItem {
   list-style: none;
 }
 

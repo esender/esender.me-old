@@ -27,12 +27,6 @@ module.exports = {
         resolveSiteUrl: () => URL,
       },
     },
-    {
-      resolve: "gatsby-plugin-manifest",
-      options: {
-        icon: "src/images/icon.png",
-      },
-    },
     "gatsby-plugin-mdx",
     {
       resolve: "gatsby-source-filesystem",

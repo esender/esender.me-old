@@ -1,0 +1,19 @@
+.greeting,
+.hey,
+.whoIAm {
+  font-family: var(--secondary-font);
+}
+
+.hey {
+  display: none;
+}
+
+.whoIAm {
+  margin-bottom: 1.5em;
+}
+
+@media (--small-tablet) {
+  .hey {
+    display: inline;
+  }
+}
