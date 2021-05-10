@@ -1,5 +1,5 @@
+import * as React from "react";
 import { graphql } from "gatsby";
-import React from "react";
 import Layout from "../components/Layout/Layout";
 import SEO from "../components/SEO/SEO";
 import ResumeItem from "../components/ResumeItem/ResumeItem";
@@ -9,7 +9,14 @@ import photoJpg2x from "../images/marat-abdulin@2x.jpg";
 import photoWebp from "../images/marat-abdulin.webp";
 import photoWebp2x from "../images/marat-abdulin@2x.webp";
 import classnames from "classnames";
-import { EMAIL, GITHUB_LINK, LINKEDIN_LINK, TELEGRAM_LINK, TWITTER_LINK, CV_LINK } from "../config";
+import {
+  EMAIL,
+  GITHUB_LINK,
+  LINKEDIN_LINK,
+  TELEGRAM_LINK,
+  TWITTER_LINK,
+  CV_LINK,
+} from "../config";
 
 const ResumePage = ({
   data: {
@@ -27,22 +34,12 @@ const ResumePage = ({
           <span>UPDATED ON 20 AUG, 2020</span>
         </div>
         <header
-          className={classnames(
-            styles.header,
-            styles.block,
-            styles.center
-          )}
+          className={classnames(styles.header, styles.block, styles.center)}
         >
           <h1 className={styles.headline}>Marat Abdulin</h1>
           <span className={styles.position}>Software Engineer</span>
         </header>
-        <div
-          className={classnames(
-            styles.photo,
-            styles.block,
-            styles.center
-          )}
-        >
+        <div className={classnames(styles.photo, styles.block, styles.center)}>
           <picture>
             <source
               srcset={`${photoWebp} 1x, ${photoWebp2x} 1.5x`}
@@ -148,7 +145,7 @@ const ResumePage = ({
         <div className={classnames(styles.experience, styles.block)}>
           <h2>Work Experience</h2>
           {edges.map(({ node }) => (
-          <ResumeItem description={node.description} {...node.frontmatter} />
+            <ResumeItem description={node.description} {...node.frontmatter} />
           ))}
         </div>
         <div className={styles.education}>
@@ -164,8 +161,6 @@ const ResumePage = ({
     </Layout>
   );
 };
-
-export default ResumePage;
 
 export const pageQuery = graphql`
   query {
@@ -189,3 +184,5 @@ export const pageQuery = graphql`
     }
   }
 `;
+
+export default ResumePage;
