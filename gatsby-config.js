@@ -1,6 +1,12 @@
+const URL = "https://esender.me";
+
 module.exports = {
   siteMetadata: {
-    title: "Personal Site",
+    title: "Marat Abdulin",
+    titleTemplate: "%s · Marat Abdulin",
+    description: "Personal page",
+    url: URL,
+    twitterUsername: "@esender_"
   },
   plugins: [
     "gatsby-plugin-postcss",
@@ -18,7 +24,7 @@ module.exports = {
           }
         }
         `,
-        resolveSiteUrl: () => "https://esender.me",
+        resolveSiteUrl: () => URL,
       },
     },
     {

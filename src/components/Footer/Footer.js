@@ -1,15 +1,16 @@
 import React from "react";
 import "./styles.css";
 import icons from  "../../images/social-icons.svg";
+import { EMAIL, GITHUB_LINK, LINKEDIN_LINK, TELEGRAM_LINK, TWITTER_LINK } from "../../config";
 
 export default function Footer() {
   return (
     <footer className="footer">
-      <a href="mailto:marat@esender.me">marat@esender.me</a>
+      <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
       <div className="or">or</div>
       <ul className="social-links">
         <li className="social-links-item">
-          <a href="https://www.linkedin.com/in/esender/">
+          <a href={LINKEDIN_LINK}>
             <svg
               xmlnsXlink="http://www.w3.org/1999/xlink"
               className="social-icon"
@@ -19,7 +20,7 @@ export default function Footer() {
           </a>
         </li>
         <li className="social-links-item">
-          <a href="https://t.me/esender">
+          <a href={TELEGRAM_LINK}>
             <svg
               xmlnsXlink="http://www.w3.org/1999/xlink"
               className="social-icon"
@@ -29,7 +30,7 @@ export default function Footer() {
           </a>
         </li>
         <li className="social-links-item">
-          <a href="https://twitter.com/esender_">
+          <a href={TWITTER_LINK}>
             <svg
               xmlnsXlink="http://www.w3.org/1999/xlink"
               className="social-icon"
@@ -39,7 +40,7 @@ export default function Footer() {
           </a>
         </li>
         <li className="social-links-item">
-          <a href="https://github.com/esender">
+          <a href={GITHUB_LINK}>
             <svg
               xmlnsXlink="http://www.w3.org/1999/xlink"
               className="social-icon"

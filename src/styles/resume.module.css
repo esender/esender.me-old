@@ -1,4 +1,4 @@
-.resume__center {
+.center {
   text-align: center;
 }
 
@@ -12,12 +12,12 @@
   font-size: 1.05rem;
 }
 
-.photo_image {
+.photoImage {
   display: inline;
   max-width: 220px;
 }
 
-.skills_list {
+.skillsList {
   margin-bottom: var(--page-vertical-spacings);
   font-size: 0.9rem;
 }
@@ -29,7 +29,7 @@
   vertical-align: middle;
 }
 
-.pdf_link {
+.pdfLink {
   margin-bottom: var(--page-vertical-spacings);
   text-align: center;
 }
@@ -45,7 +45,7 @@
   margin-bottom: calc(var(--page-vertical-spacings) * 2);
 }
 
-.resume__gray {
+.gray {
   color: gray;
 }
 
@@ -72,7 +72,7 @@
     grid-column: 1 / 2;
   }
 
-  .pdf_link {
+  .pdfLink {
     text-align: left;
   }
 
@@ -120,7 +120,7 @@
 
   }
 
-  .skills_set {
+  .skillsSet {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
   }

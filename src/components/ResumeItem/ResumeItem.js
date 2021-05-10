@@ -22,7 +22,7 @@ export default function ResumeJob({
         <span className={styles.location}>{location}</span>
       </div>
       <div className={styles.description}>
-        {description}
+        <div dangerouslySetInnerHTML={{ __html: description }}></div>
         <br />
         <ul className={styles.list}>
           {points && points.map(point => (<li>{point}</li>))}

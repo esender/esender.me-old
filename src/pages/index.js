@@ -1,10 +1,12 @@
 import * as React from "react";
 import Layout from "../components/Layout/Layout";
+import SEO from "../components/SEO/SEO";
 
 // markup#663399
 const IndexPage = () => {
   return (
     <Layout>
+      <SEO />
       <h1 className="greeting">
         <span className="hey">Hi,</span> I am Marat Abdulin 👋
       </h1>
