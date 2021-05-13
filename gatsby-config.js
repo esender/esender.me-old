@@ -9,6 +9,7 @@ module.exports = {
     twitterUsername: "@esender_"
   },
   plugins: [
+    "gatsby-plugin-preact",
     "gatsby-plugin-postcss",
     "gatsby-plugin-gatsby-cloud",
     "gatsby-plugin-react-helmet",
@@ -27,7 +28,6 @@ module.exports = {
         resolveSiteUrl: () => URL,
       },
     },
-    "gatsby-plugin-mdx",
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -44,7 +44,6 @@ module.exports = {
       },
     },
     "gatsby-transformer-remark",
-    "gatsby-plugin-preact"
   ],
   polyfill: false,
 };
