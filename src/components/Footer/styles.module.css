@@ -21,11 +21,6 @@
   margin-left: 1em;
 }
 
-.socialIcon {
-  width: 1em;
-  height: 1em;
-}
-
 @media (--tablet) {
   .footer {
     max-width: var(--max-page-width);

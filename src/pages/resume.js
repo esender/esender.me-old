@@ -3,6 +3,7 @@ import { graphql } from "gatsby";
 import Layout from "../components/Layout/Layout";
 import SEO from "../components/SEO/SEO";
 import ResumeItem from "../components/ResumeItem/ResumeItem";
+import SocialIcon from "../components/SocialIcon/SocialIcon";
 import * as styles from "../styles/resume.module.css";
 import photoJpg from "../images/marat-abdulin.jpg";
 import photoJpg2x from "../images/marat-abdulin@2x.jpg";
@@ -72,19 +73,24 @@ const ResumePage = ({
             <h2>Contacts</h2>
             <ul>
               <li>
+                <SocialIcon icon="at" className={styles.icon}/>
                 <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
               </li>
               <li>
-                <a href={GITHUB_LINK}>e​sender</a>
+                <SocialIcon icon="github" className={styles.icon}/>
+                <a href={GITHUB_LINK}>esender</a>
               </li>
               <li>
-                <a href={LINKEDIN_LINK}>e​sender</a>
+                <SocialIcon icon="linkedin" className={styles.icon}/>
+                <a href={LINKEDIN_LINK}>esender</a>
               </li>
               <li>
-                <a href={TELEGRAM_LINK}>@​esender</a>
+                <SocialIcon icon="telegram" className={styles.icon}/>
+                <a href={TELEGRAM_LINK}>@esender</a>
               </li>
               <li>
-                <a href={TWITTER_LINK}>e​sender.me</a>
+                <SocialIcon icon="twitter" className={styles.icon}/>
+                <a href={TWITTER_LINK}>esender_</a>
               </li>
             </ul>
           </div>

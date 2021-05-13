@@ -1,7 +1,13 @@
 import React from "react";
 import * as styles from "./styles.module.css";
-import icons from  "../../images/social-icons.svg";
+import SocialIcon from "../SocialIcon/SocialIcon";
 import { EMAIL, GITHUB_LINK, LINKEDIN_LINK, TELEGRAM_LINK, TWITTER_LINK } from "../../config";
+
+const Icon = ({ href, icon }) => (
+  <a href={href}>
+    <SocialIcon icon={icon} />
+  </a>
+)
 
 export default function Footer() {
   return (
@@ -10,44 +16,16 @@ export default function Footer() {
       <div className={styles.or}>or</div>
       <ul className={styles.socialLinks}>
         <li className={styles.socialLinksItem}>
-          <a href={LINKEDIN_LINK}>
-            <svg
-              xmlnsXlink="http://www.w3.org/1999/xlink"
-              className={styles.socialIcon}
-            >
-              <use xlinkHref={`${icons}#linkedin`}></use>
-            </svg>
-          </a>
+          <Icon href={LINKEDIN_LINK} icon="linkedin"/>
         </li>
         <li className={styles.socialLinksItem}>
-          <a href={TELEGRAM_LINK}>
-            <svg
-              xmlnsXlink="http://www.w3.org/1999/xlink"
-              className={styles.socialIcon}
-            >
-              <use xlinkHref={`${icons}#telegram`}></use>
-            </svg>
-          </a>
+          <Icon href={TELEGRAM_LINK} icon="telegram"/>
         </li>
         <li className={styles.socialLinksItem}>
-          <a href={TWITTER_LINK}>
-            <svg
-              xmlnsXlink="http://www.w3.org/1999/xlink"
-              className={styles.socialIcon}
-            >
-              <use xlinkHref={`${icons}#twitter`}></use>
-            </svg>
-          </a>
+          <Icon href={TWITTER_LINK} icon="twitter"/>
         </li>
         <li className={styles.socialLinksItem}>
-          <a href={GITHUB_LINK}>
-            <svg
-              xmlnsXlink="http://www.w3.org/1999/xlink"
-              className={styles.socialIcon}
-            >
-              <use xlinkHref={`${icons}#github`}></use>
-            </svg>
-          </a>
+          <Icon href={GITHUB_LINK} icon="github"/>
         </li>
       </ul>
     </footer>
