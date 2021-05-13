@@ -23,7 +23,7 @@ const IndexPage = () => {
 
       <p>
         If you are looking for a software engineer you can take a look at my{" "}
-        <Link href="/resume/">résumé page</Link> or just download it right from{" "}
+        <Link to="/resume/">résumé page</Link> or just download it right from{" "}
         <a href="/files/CV_Marat_Abdulin_2020-08-20.pdf">here</a>.
       </p>
     </Layout>

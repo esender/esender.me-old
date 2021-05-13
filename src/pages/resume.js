@@ -43,7 +43,7 @@ const ResumePage = ({
         <div className={classnames(styles.photo, styles.block, styles.center)}>
           <picture>
             <source
-              srcset={`${photoWebp} 1x, ${photoWebp2x} 1.5x`}
+              srcSet={`${photoWebp} 1x, ${photoWebp2x} 1.5x`}
               type="image/webp"
             />
             <source srcset={`${photoJpg} 1x, ${photoJpg2x} 1.5x`} />
@@ -151,7 +151,7 @@ const ResumePage = ({
         <div className={classnames(styles.experience, styles.block)}>
           <h2>Work Experience</h2>
           {edges.map(({ node }) => (
-            <ResumeItem description={node.description} {...node.frontmatter} />
+            <ResumeItem key={node.id} description={node.description} {...node.frontmatter} />
           ))}
         </div>
         <div className={styles.education}>
@@ -176,6 +176,7 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
+          id
           description: html
           frontmatter {
             title

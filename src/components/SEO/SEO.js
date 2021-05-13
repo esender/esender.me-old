@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 import { useLocation } from "@reach/router";
 import { useStaticQuery, graphql } from "gatsby";
@@ -39,6 +38,10 @@ const SEO = ({ title, description, article }) => {
       {seo.description && (
         <meta name="twitter:description" content={seo.description} />
       )}
+      <link rel="shortcut icon" sizes="48x48" href="/favicon.ico"  />
+      <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+      <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+      <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     </Helmet>
   );
 };
@@ -59,16 +62,8 @@ const query = graphql`
   }
 `;
 
-SEO.propTypes = {
-  title: PropTypes.string,
-  description: PropTypes.string,
-  image: PropTypes.string,
-  article: PropTypes.bool,
-};
-
 SEO.defaultProps = {
   title: null,
   description: null,
-  image: null,
   article: false,
 };
