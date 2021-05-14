@@ -32,7 +32,7 @@ const ResumePage = ({
           <a href={CV_LINK}>Download PDF</a>
         </div>
         <div className={styles.updated}>
-          <span>UPDATED ON 20 AUG, 2020</span>
+          <span>UPDATED ON 14 MAY, 2021</span>
         </div>
         <header
           className={classnames(styles.header, styles.block, styles.center)}
@@ -136,6 +136,10 @@ const ResumePage = ({
                 <li>Express, Fastify, Nuxt</li>
                 <li>Bolt, Telegraf</li>
                 <li>Sequilize, Mongoose</li>
+              </ul>
+              <h3>Clojure</h3>
+              <ul className={styles.skillsList}>
+                <li>ClojureScript, Reagent, Re-frame</li>
               </ul>
               <h3>Other</h3>
               <ul className={styles.skillsList}>
