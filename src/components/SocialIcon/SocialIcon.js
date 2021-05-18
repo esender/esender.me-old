@@ -8,6 +8,7 @@ export default function socialicon({ icon, className }) {
       xmlnsxlink="http://www.w3.org/1999/xlink"
       className={classnames(styles.socialIcon, className)}
     >
+      <title>{icon}</title>
       <use xlinkHref={`/images/social-icons.svg#${icon}`}></use>
     </svg>
   );
