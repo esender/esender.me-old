@@ -21,6 +21,18 @@
   margin-left: 1em;
 }
 
+.icon {
+  fill: var(--color-base);
+  transition: fill 600ms;
+  transition-delay: 200ms;
+}
+
+.icon:hover {
+  transition: fill 600ms;
+  trnasition-delay: 0;
+  fill: var(--color-primary);
+}
+
 @media (--tablet) {
   .footer {
     max-width: var(--max-page-width);

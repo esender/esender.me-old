@@ -10,7 +10,7 @@
   --max-page-width: 1200px;
   --max-content-width: 800px;
   --background-color: #fff;
-
+  --color-primary: #663399;
 }
 
 @media (--small-tablet) {

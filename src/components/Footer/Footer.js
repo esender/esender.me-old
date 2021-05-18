@@ -5,7 +5,7 @@ import { EMAIL, GITHUB_LINK, LINKEDIN_LINK, TELEGRAM_LINK, TWITTER_LINK } from "
 
 const Icon = ({ href, icon }) => (
   <a href={href}>
-    <SocialIcon icon={icon} />
+    <SocialIcon icon={icon} className={styles.icon} />
   </a>
 )
 

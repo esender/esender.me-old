@@ -8,7 +8,7 @@ export default function ResumeJob({
   period,
   location,
   description,
-  points
+  points,
 }) {
   return (
     <div className={styles.wrapper}>
@@ -23,10 +23,13 @@ export default function ResumeJob({
       </div>
       <div className={styles.description}>
         <div dangerouslySetInnerHTML={{ __html: description }}></div>
-        <br />
-        <ul className={styles.list}>
-          {points && points.map(point => (<li>{point}</li>))}
-        </ul>
+        {points && (
+          <ul className={styles.list}>
+            {points.map((point) => (
+              <li>{point}</li>
+            ))}
+          </ul>
+        )}
       </div>
     </div>
   );
