@@ -26,14 +26,15 @@ query BlogPostsQuery($skip: Int!, $limit: Int!) {
   ) {
     posts: edges {
       node {
-          fields {
-              slug
-          }
+        fields {
+          slug
+        }
         id
         frontmatter {
           title
           description
           date(formatString: "MMMM DD, YYYY")
+          tags
         }
       }
     }

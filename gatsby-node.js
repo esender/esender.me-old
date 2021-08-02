@@ -6,7 +6,8 @@ function paginate(items, options = {}, callback) {
   const {
     itemsPerPage = 15
   } = options;
-  const totalPages = Math.ceil(items.length / itemsPerPage);
+  const totalItems = Array.isArray(items) ? items.length : items;
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
 
   Array.from({ length: totalPages }).forEach((_, i) => {
     const page = i + 1;
@@ -17,6 +18,13 @@ function paginate(items, options = {}, callback) {
       totalPages
     })
   })
+}
+
+function toKebabCase(str) {
+  return str
+    .replace(/([a-z])([A-Z])/g, '$1-$2')    // get all lowercase letters that are near to uppercase ones
+    .replace(/[\s_]+/g, '-')                // replace all spaces and low dash
+    .toLowerCase()                          // convert to lower case
 }
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
@@ -47,6 +55,22 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       context: {
         slug: post.fields.slug,
       },
+    })
+  })
+
+  const postsByTags = await graphql(queries.getPostsByTags);
+
+  postsByTags.data.allMarkdownRemark.group.forEach(({ tag, totalCount }) => {
+    paginate(totalCount, {}, function (context) {
+      const tagPath = `${blogPrefixPath}/tags/${toKebabCase(tag)}`
+      createPage({
+        path: context.page === 1 ? tagPath : `${tagPath}/${context.page}`,
+        component: path.resolve("./src/templates/tag.js"),
+        context: {
+          ...context,
+          tag
+        }
+      })
     })
   })
 }

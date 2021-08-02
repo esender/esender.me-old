@@ -14,6 +14,14 @@ module.exports = {
           }
         }
       }
+    }`,
+    getPostsByTags: `{
+      allMarkdownRemark {
+        group(field: frontmatter___tags) {
+          tag: fieldValue
+          totalCount
+        }
+      }
     }`
   }
 }

@@ -5,7 +5,7 @@ import * as styles from "./styles.module.css";
 export default function Header() {
   return (
     <header className={styles.header}>
-      <div className={styles.name}>Marat Abdulin</div>
+      <Link to="/" className={styles.name}>Marat Abdulin</Link>
       <nav>
         <ul className={styles.navigationList}>
           <li className={styles.navigationItem}>

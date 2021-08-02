@@ -11,6 +11,9 @@ export default function BlogPost({ data }) {
       <SEO title="Blog" />
       <h1>{post.frontmatter.title}</h1>
       <small>{post.frontmatter.date}</small>
+      <ul>
+        {post.frontmatter.tags.map(tag => <li>{tag}</li>)}
+      </ul>
       <div dangerouslySetInnerHTML={{ __html: post.html }} />
     </Layout>
   )
@@ -22,6 +25,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        tags
       }
     }
   }
