@@ -1,7 +1,7 @@
 import React from "react";
 import * as styles from "./styles.module.css";
 import SocialIcon from "../SocialIcon/SocialIcon";
-import { EMAIL, GITHUB_LINK, LINKEDIN_LINK, TELEGRAM_LINK, TWITTER_LINK } from "../../config";
+import { EMAIL, GITHUB_LINK, LINKEDIN_LINK, TELEGRAM_LINK, TWITTER_LINK } from "../../site.config";
 
 const Icon = ({ href, icon }) => (
   <a href={href}>
@@ -16,16 +16,16 @@ export default function Footer() {
       <div className={styles.or}>or</div>
       <ul className={styles.socialLinks}>
         <li className={styles.socialLinksItem}>
-          <Icon href={LINKEDIN_LINK} icon="linkedin"/>
+          <Icon href={LINKEDIN_LINK} icon="linkedin" />
         </li>
         <li className={styles.socialLinksItem}>
-          <Icon href={TELEGRAM_LINK} icon="telegram"/>
+          <Icon href={TELEGRAM_LINK} icon="telegram" />
         </li>
         <li className={styles.socialLinksItem}>
-          <Icon href={TWITTER_LINK} icon="twitter"/>
+          <Icon href={TWITTER_LINK} icon="twitter" />
         </li>
         <li className={styles.socialLinksItem}>
-          <Icon href={GITHUB_LINK} icon="github"/>
+          <Icon href={GITHUB_LINK} icon="github" />
         </li>
       </ul>
     </footer>

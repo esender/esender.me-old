@@ -17,7 +17,7 @@ import {
   TELEGRAM_LINK,
   TWITTER_LINK,
   CV_LINK,
-} from "../config";
+} from "../site.config";
 
 const ResumePage = ({
   data: {
@@ -73,23 +73,23 @@ const ResumePage = ({
             <h2>Contacts</h2>
             <ul>
               <li>
-                <SocialIcon icon="at" className={styles.icon}/>
+                <SocialIcon icon="at" className={styles.icon} />
                 <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
               </li>
               <li>
-                <SocialIcon icon="github" className={styles.icon}/>
+                <SocialIcon icon="github" className={styles.icon} />
                 <a href={GITHUB_LINK}>esender</a>
               </li>
               <li>
-                <SocialIcon icon="linkedin" className={styles.icon}/>
+                <SocialIcon icon="linkedin" className={styles.icon} />
                 <a href={LINKEDIN_LINK}>esender</a>
               </li>
               <li>
-                <SocialIcon icon="telegram" className={styles.icon}/>
+                <SocialIcon icon="telegram" className={styles.icon} />
                 <a href={TELEGRAM_LINK}>@esender</a>
               </li>
               <li>
-                <SocialIcon icon="twitter" className={styles.icon}/>
+                <SocialIcon icon="twitter" className={styles.icon} />
                 <a href={TWITTER_LINK}>esender_</a>
               </li>
             </ul>

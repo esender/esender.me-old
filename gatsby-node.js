@@ -1,60 +1,63 @@
 const path = require("path")
 const { createFilePath } = require("gatsby-source-filesystem")
+const { queries, blogPrefixPath } = require("./src/blog.config")
 
-exports.createPages = async ({ graphql, actions, reporter }) => {
-    const { createPage } = actions
+function paginate(items, options = {}, callback) {
+  const {
+    itemsPerPage = 15
+  } = options;
+  const totalPages = Math.ceil(items.length / itemsPerPage);
 
-    const result = await graphql(
-        `{
-        allMarkdownRemark(
-          sort: { order: DESC, fields: frontmatter___date }
-          filter: { fileAbsolutePath: { regex: "/blog/" } }
-        ) {
-          edges {
-            node {
-              fields {
-                slug
-              }
-            }
-          }
-        }
-      }
-    `
-    )
-
-    if (result.errors) {
-        reporter.panicOnBuild(`Error while running GraphQL query.`)
-        return
-    }
-
-    // ...
-
-    // Create blog-list pages
-    const posts = result.data.allMarkdownRemark.edges
-    const postsPerPage = 6
-    const numPages = Math.ceil(posts.length / postsPerPage)
-    Array.from({ length: numPages }).forEach((_, i) => {
-        createPage({
-            path: i === 0 ? `/blog` : `/blog/${i + 1}`,
-            component: path.resolve("./src/templates/blog.js"),
-            context: {
-                limit: postsPerPage,
-                skip: i * postsPerPage,
-                numPages,
-                currentPage: i + 1,
-            },
-        })
+  Array.from({ length: totalPages }).forEach((_, i) => {
+    const page = i + 1;
+    callback({
+      page,
+      limit: itemsPerPage,
+      skip: i * itemsPerPage,
+      totalPages
     })
+  })
 }
 
-exports.onCreateNode = ({ node, actions, getNode }) => {
-    const { createNodeField } = actions
-    if (node.internal.type === `MarkdownRemark`) {
-        const value = createFilePath({ node, getNode })
-        createNodeField({
-            name: `slug`,
-            node,
-            value,
-        })
-    }
+exports.createPages = async ({ graphql, actions, reporter }) => {
+  const { createPage } = actions
+
+  const result = await graphql(queries.getAllPosts)
+
+  if (result.errors) {
+    reporter.panicOnBuild(`Error while running GraphQL query.`)
+    return
+  }
+
+  // Create blog-list pages
+  const posts = result.data.allMarkdownRemark.edges
+  paginate(posts, {}, function (context) {
+    createPage({
+      path: context.page === 1 ? blogPrefixPath : `${blogPrefixPath}/${context.page}`,
+      component: path.resolve("./src/templates/blog.js"),
+      context
+    })
+  })
+
+  // Create blog-post pages
+  posts.forEach(({ node: post }) => {
+    createPage({
+      path: post.fields.slug,
+      component: path.resolve(`./src/templates/blog-post.js`),
+      context: {
+        slug: post.fields.slug,
+      },
+    })
+  })
+}
+
+exports.onCreateNode = ({ node, actions: { createNodeField }, getNode }) => {
+  if (node.internal.type === `MarkdownRemark`) {
+    const value = createFilePath({ node, getNode })
+    createNodeField({
+      name: `slug`,
+      node,
+      value,
+    })
+  }
 }

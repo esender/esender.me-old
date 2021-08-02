@@ -2,26 +2,18 @@ import * as React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout/Layout";
 import SEO from "../components/SEO/SEO";
+import Pagination from "../components/Blog/Pagination/Pagination";
+import PostPreview from "../components/Blog/PostPreview/PostPreview";
 
-const BlogIndex = ({
-    data: {
-        blog: { posts },
-    },
-}) => {
-    return (
-        <Layout>
-            <SEO title="Blog" />
-            <div>
-                {posts.map(({ node }) => (
-                    <div>
-                        <h1>{node.frontmatter.title}</h1>
-                        <div>{node.fields.slug}</div>
-                        {node.excerpt}
-                    </div>
-                ))}
-            </div>
-        </Layout>
-    );
+const BlogIndex = ({ data, pageContext: { totalPages, page } }) => {
+  const posts = data.blog.posts
+  return (
+    <Layout>
+      <SEO title="Blog" />
+      {posts.map(({ node: post }) => <PostPreview {...post} />)}
+      <Pagination page={page} totalPages={totalPages} />
+    </Layout>
+  );
 };
 
 export const pageQuery = graphql`
@@ -37,10 +29,10 @@ query BlogPostsQuery($skip: Int!, $limit: Int!) {
           fields {
               slug
           }
-        excerpt(pruneLength: 250)
         id
         frontmatter {
           title
+          description
           date(formatString: "MMMM DD, YYYY")
         }
       }
