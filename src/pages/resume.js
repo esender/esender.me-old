@@ -155,7 +155,11 @@ const ResumePage = ({
         <div className={classnames(styles.experience, styles.block)}>
           <h2>Work Experience</h2>
           {edges.map(({ node }) => (
-            <ResumeItem key={node.id} description={node.description} {...node.frontmatter} />
+            <ResumeItem
+              key={node.id}
+              description={node.description}
+              {...node.frontmatter}
+            />
           ))}
         </div>
         <div className={styles.education}>

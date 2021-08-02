@@ -2,34 +2,35 @@ import * as React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout/Layout";
 import SEO from "../components/SEO/SEO";
-import Pagination from "../components/Blog/Pagination/Pagination";
-import PostPreview from "../components/Blog/PostPreview/PostPreview";
+import PostsList from "../components/Blog/PostsList/PostsList";
 
-const CategoryTemplate = ({ pageContext: { tag, totalPages, page }, data }) => {
-  const posts = data.blog.posts
+const TagsPage = ({ pageContext: { tag, totalPages, page }, data }) => {
+  const posts = data.blog.posts;
   return (
     <Layout>
       <SEO title="Blog" />
       <h1>Tag: "{tag}"</h1>
-      {posts.map(({ node: post }) => <PostPreview {...post} />)}
-      <Pagination page={page} totalPages={totalPages} />
+      <PostsList posts={posts} page={page} totalPages={totalPages} />
     </Layout>
   );
-}
+};
 
 export const pageQuery = graphql`
   query TagPage($tag: String, $skip: Int!, $limit: Int!) {
     blog: allMarkdownRemark(
-      filter: { frontmatter: { tags: { in: [$tag] } }, fileAbsolutePath: { regex: "/blog/" } }
+      filter: {
+        frontmatter: { tags: { in: [$tag] } }
+        fileAbsolutePath: { regex: "/blog/" }
+      }
       sort: { order: DESC, fields: frontmatter___date }
       limit: $limit
       skip: $skip
     ) {
       posts: edges {
         node {
-            fields {
-                slug
-            }
+          fields {
+            slug
+          }
           id
           frontmatter {
             title
@@ -41,6 +42,6 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
 
-export default CategoryTemplate
+export default TagsPage;

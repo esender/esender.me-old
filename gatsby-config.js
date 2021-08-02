@@ -6,7 +6,7 @@ module.exports = {
     titleTemplate: "%s · Marat Abdulin",
     description: "Personal page",
     url: URL,
-    twitterUsername: "@esender_"
+    twitterUsername: "@esender_",
   },
   plugins: [
     "gatsby-plugin-preact",

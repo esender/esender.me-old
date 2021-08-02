@@ -1,13 +1,19 @@
 import React from "react";
 import * as styles from "./styles.module.css";
 import SocialIcon from "../SocialIcon/SocialIcon";
-import { EMAIL, GITHUB_LINK, LINKEDIN_LINK, TELEGRAM_LINK, TWITTER_LINK } from "../../site.config";
+import {
+  EMAIL,
+  GITHUB_LINK,
+  LINKEDIN_LINK,
+  TELEGRAM_LINK,
+  TWITTER_LINK,
+} from "../../site.config";
 
 const Icon = ({ href, icon }) => (
   <a href={href}>
     <SocialIcon icon={icon} className={styles.icon} />
   </a>
-)
+);
 
 export default function Footer() {
   return (

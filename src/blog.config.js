@@ -1,5 +1,6 @@
 module.exports = {
   blogPrefixPath: "/blog",
+  tagPrefixPath: "/blog/tags",
   queries: {
     getAllPosts: `{
       allMarkdownRemark(
@@ -22,6 +23,6 @@ module.exports = {
           totalCount
         }
       }
-    }`
-  }
-}
+    }`,
+  },
+};

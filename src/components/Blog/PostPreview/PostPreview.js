@@ -1,30 +1,34 @@
 import React from "react";
 import { Link } from "gatsby";
+import toKebabCase from "../../../utils/to-kebab-case";
 import * as styles from "./styles.module.css";
-
-function toKebabCase(str) {
-  return str
-    .replace(/([a-z])([A-Z])/g, '$1-$2')    // get all lowercase letters that are near to uppercase ones
-    .replace(/[\s_]+/g, '-')                // replace all spaces and low dash
-    .toLowerCase()                          // convert to lower case
-}
 
 export default function PostPreview({
   fields: { slug },
-  frontmatter: { title, date, description, tags }
+  frontmatter: { title, date, description, tags },
 }) {
   return (
-    <article className={styles.post}>
-      <h2>
-        <Link to={slug}>{title}</Link>
-      </h2>
-      {date}
-      <ul>
-        {tags.map(tag => <li>#<Link to={`/blog/tags/${toKebabCase(tag)}`}>{tag}</Link></li>)}
+    <article
+      className={styles.post}
+      itemScope
+      itemType="http://schema.org/Article"
+    >
+      <header>
+        <h2 itemProp="headline">
+          <Link to={slug} itemProp="url">
+            {title}
+          </Link>
+        </h2>
+        <small itemProp="datePublished">{date}</small>
+      </header>
+      <ul itemProp="keywords">
+        {tags.map((tag) => (
+          <li>
+            #<Link to={`/blog/tags/${toKebabCase(tag)}`}>{tag}</Link>
+          </li>
+        ))}
       </ul>
-      <div>
-        {description}
-      </div>
+      <div itemProp="description">{description}</div>
     </article>
   );
 }

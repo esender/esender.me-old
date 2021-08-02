@@ -16,6 +16,10 @@
   margin-top: 3em;
 }
 
+.block {
+  margin-bottom: calc(var(--page-vertical-spacings) * 2);
+}
+
 @media (--small-tablet) {
   .hey {
     display: inline;
