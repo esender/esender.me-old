@@ -8,7 +8,7 @@ const TagsPage = ({ pageContext: { tag, totalPages, page }, data }) => {
   const posts = data.blog.posts;
   return (
     <Layout>
-      <SEO title="Blog" />
+      <SEO title={`Posts with tag: "${tag}"`} />
       <h1>Tag: "{tag}"</h1>
       <PostsList posts={posts} page={page} totalPages={totalPages} />
     </Layout>

@@ -9,7 +9,11 @@ export default function BlogPost({ data }) {
 
   return (
     <Layout>
-      <SEO title="Blog" />
+      <SEO
+        title={post.frontmatter.title}
+        article
+        description={post.frontmatter.description}
+      />
       <Post post={post} />
     </Layout>
   );
