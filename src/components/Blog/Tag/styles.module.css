@@ -1,0 +1,16 @@
+.tag {
+  display: inline-block;
+}
+
+.tag:before {
+  content: "#";
+  display: inline-block;
+  color: #663399;
+  font-size: 0.8em;
+  margin-right: 0.07em;
+  font-weight: bold;
+}
+
+.tag:hover {
+  text-decoration: none;
+}

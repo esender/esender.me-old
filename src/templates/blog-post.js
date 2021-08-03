@@ -2,6 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout/Layout";
 import SEO from "../components/SEO/SEO";
+import Post from "../components/Blog/Post/Post";
 
 export default function BlogPost({ data }) {
   const post = data.markdownRemark;
@@ -9,14 +10,7 @@ export default function BlogPost({ data }) {
   return (
     <Layout>
       <SEO title="Blog" />
-      <h1>{post.frontmatter.title}</h1>
-      <small>{post.frontmatter.date}</small>
-      <ul>
-        {post.frontmatter.tags.map((tag) => (
-          <li key={tag}>{tag}</li>
-        ))}
-      </ul>
-      <div dangerouslySetInnerHTML={{ __html: post.html }} />
+      <Post post={post} />
     </Layout>
   );
 }
@@ -28,6 +22,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        ISODate: date(formatString: "YYYY-MM-DD")
         tags
       }
     }

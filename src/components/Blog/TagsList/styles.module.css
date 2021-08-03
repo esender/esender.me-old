@@ -1,0 +1,11 @@
+.tags {
+  display: inline-block;
+}
+
+.tagItem {
+  display: inline;
+}
+
+.tagItem:not(:last-child):after {
+  content: ", ";
+}

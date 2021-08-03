@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "gatsby";
-import toKebabCase from "../../../utils/to-kebab-case";
 import * as styles from "./styles.module.css";
+import Tag from "../Tag/Tag";
+import TagsList from "../TagsList/TagsList";
 
 export default function PostPreview({
   fields: { slug },
@@ -21,13 +22,7 @@ export default function PostPreview({
         </h2>
         <small itemProp="datePublished">{date}</small>
       </header>
-      <ul itemProp="keywords">
-        {tags.map((tag) => (
-          <li>
-            #<Link to={`/blog/tags/${toKebabCase(tag)}`}>{tag}</Link>
-          </li>
-        ))}
-      </ul>
+      <TagsList tags={tags} />
       <div itemProp="description">{description}</div>
     </article>
   );
