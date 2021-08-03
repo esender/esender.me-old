@@ -1,12 +1,11 @@
 import React from "react";
 import { Link } from "gatsby";
 import * as styles from "./styles.module.css";
-import Tag from "../Tag/Tag";
 import TagsList from "../TagsList/TagsList";
 
 export default function PostPreview({
   fields: { slug },
-  frontmatter: { title, date, description, tags },
+  frontmatter: { title, date, description, tags, ISODate },
 }) {
   return (
     <article
@@ -20,9 +19,13 @@ export default function PostPreview({
             {title}
           </Link>
         </h2>
-        <small itemProp="datePublished">{date}</small>
+        <section className={styles.details}>
+          <time itemprop="published" datetime={ISODate}>
+            {date}
+          </time>{" "}
+          &bull; <TagsList tags={tags} className={styles.tagsList} />
+        </section>
       </header>
-      <TagsList tags={tags} />
       <div itemProp="description">{description}</div>
     </article>
   );

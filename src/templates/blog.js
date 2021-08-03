@@ -32,6 +32,7 @@ export const pageQuery = graphql`
             title
             description
             date(formatString: "MMMM DD, YYYY")
+            ISODate: date(formatString: "YYYY-MM-DD")
             tags
           }
         }

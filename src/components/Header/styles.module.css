@@ -9,6 +9,10 @@
   text-decoration: none;
 }
 
+.name:visited {
+  color: var(--color-base);
+}
+
 .navigationList {
   display: flex;
   justify-content: space-around;

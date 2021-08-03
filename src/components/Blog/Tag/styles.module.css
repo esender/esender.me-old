@@ -2,6 +2,10 @@
   display: inline-block;
 }
 
+.tag:hover {
+  text-decoration: none;
+}
+
 .tag:before {
   content: "#";
   display: inline-block;
@@ -11,6 +15,10 @@
   font-weight: bold;
 }
 
-.tag:hover {
-  text-decoration: none;
+.tag:visited:before {
+  color: #777;
+}
+
+.tag:hover:before {
+  color: #663399;
 }
