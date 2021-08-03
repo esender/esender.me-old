@@ -26,6 +26,7 @@ export const pageQuery = graphql`
         node {
           fields {
             slug
+            year
           }
           id
           frontmatter {

@@ -35,6 +35,13 @@ exports.onCreateNode = ({ node, actions: { createNodeField }, getNode }) => {
       node,
       value,
     });
+
+    if (node.frontmatter.date && node.frontmatter.date.length) {
+      const date = new Date(node.frontmatter.date);
+
+      const year = date.getFullYear();
+      createNodeField({ node, name: "year", value: year });
+    }
   }
 };
 
