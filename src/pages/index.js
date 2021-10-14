@@ -1,7 +1,6 @@
 import * as React from "react";
 import Layout from "../components/Layout/Layout";
 import SEO from "../components/SEO/SEO";
-import { Link } from "gatsby";
 import * as styles from "../styles/homepage.module.css";
 
 const IndexPage = () => {
@@ -31,13 +30,6 @@ const IndexPage = () => {
         </p>
 
         <p>Don't hesitate to reach out!</p>
-      </div>
-
-      <div className={styles.projects}>
-        <h2>Sometimes I am working on...</h2>
-        <h3>eye2eye - Ideal World Cup</h3>
-        <p>The clone of the Korean ideal world cup website.</p>
-        <a href="https://eye2eye.fun">Website</a>
       </div>
     </Layout>
   );

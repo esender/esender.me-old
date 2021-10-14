@@ -12,10 +12,6 @@
   margin-bottom: 1.5em;
 }
 
-.projects {
-  margin-top: 3em;
-}
-
 .block {
   margin-bottom: calc(var(--page-vertical-spacings) * 2);
 }
